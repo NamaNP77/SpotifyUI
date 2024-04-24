@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0D8F692BD9859400B37F9D /* SongRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8F682BD9859400B37F9D /* SongRowCell.swift */; };
 		ED0E9A762BD7C631006306ED /* SpotifyRecentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E9A752BD7C631006306ED /* SpotifyRecentsCell.swift */; };
 		ED0E9A782BD7CC5D006306ED /* SpotifyNewReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E9A772BD7CC5D006306ED /* SpotifyNewReleaseCell.swift */; };
 		ED5AB6242BD3F58400DF9AAF /* SpotifyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5AB6232BD3F58400DF9AAF /* SpotifyUIApp.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED0D8F682BD9859400B37F9D /* SongRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRowCell.swift; sourceTree = "<group>"; };
 		ED0E9A752BD7C631006306ED /* SpotifyRecentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyRecentsCell.swift; sourceTree = "<group>"; };
 		ED0E9A772BD7CC5D006306ED /* SpotifyNewReleaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNewReleaseCell.swift; sourceTree = "<group>"; };
 		ED5AB6202BD3F58400DF9AAF /* SpotifyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				EDF0D2222BD8EFB20019041A /* ImageTitleRowCell.swift */,
 				EDF0D2262BD934710019041A /* PlaylistHeaderCell.swift */,
 				EDF0D2282BD93DCE0019041A /* PlaylistDescriptionCell.swift */,
+				ED0D8F682BD9859400B37F9D /* SongRowCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				ED5AB6382BD3F72E00DF9AAF /* Constants.swift in Sources */,
 				ED0E9A762BD7C631006306ED /* SpotifyRecentsCell.swift in Sources */,
 				ED5AB63C2BD3FC9B00DF9AAF /* Product.swift in Sources */,
+				ED0D8F692BD9859400B37F9D /* SongRowCell.swift in Sources */,
 				EDF0D2292BD93DCE0019041A /* PlaylistDescriptionCell.swift in Sources */,
 				ED5AB63E2BD3FCB600DF9AAF /* User.swift in Sources */,
 			);

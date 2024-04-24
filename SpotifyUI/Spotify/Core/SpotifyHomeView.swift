@@ -7,9 +7,11 @@
 
 import SwiftUI
 import SwiftfulUI
+import SwiftfulRouting
 
 struct SpotifyHomeView: View {
     
+    @Environment(\.router) var router
     @State private var currentUser : User? = nil
     @State private var selectedCategory : Category? = .all
     @State private var products : [Product] = []
@@ -56,6 +58,7 @@ struct SpotifyHomeView: View {
     }
     
     private func getData() async {
+        guard products.isEmpty else {return}
         do {
             currentUser = try await DatabaseHelper().getUsers().first
             products = try await Array( DatabaseHelper().getProduct().prefix(8))
@@ -81,7 +84,7 @@ struct SpotifyHomeView: View {
                         .background(Color.spotifyWhite)
                         .clipShape(Circle())
                         .onTapGesture {
-                            
+                            router.dismissScreen()
                         }
                 }
             }.frame(width: 35, height: 35)
@@ -110,11 +113,19 @@ struct SpotifyHomeView: View {
             if let product {
                 SpotifyRecentsCell(imageName: product.firstImage, title: product.title)
                     .asButton(.press) {
-                        
+                        goToPlayListView(product: product)
                     }
             }
         }
     }
+    
+    private func goToPlayListView(product : Product){
+        guard let currentUser else{return}
+        router.showScreen(.push) { _ in
+            SpotifyPlaylistView(product: product, user: currentUser)
+        }
+    }
+    
     private func newReleaseSection(product : Product) -> some View {
         
             SpotifyNewReleaseCell(
@@ -127,7 +138,7 @@ struct SpotifyHomeView: View {
                     
                 },
                 onPlayPressed: {
-                    
+                    goToPlayListView(product: product)
                 }
             )
         
@@ -148,7 +159,7 @@ struct SpotifyHomeView: View {
                         ForEach(row.products){ product in
                             ImageTitleRowCell(imageSize : 120,imageName: product.firstImage, title: product.title)
                                 .asButton(.press) {
-                                    
+                                    goToPlayListView(product: product)
                                 }
                         }
                     }
@@ -161,5 +172,8 @@ struct SpotifyHomeView: View {
 }
 
 #Preview {
-    SpotifyHomeView()
+    RouterView{_ in
+        SpotifyHomeView()
+    }
+    
 }
